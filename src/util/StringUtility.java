@@ -20,9 +20,6 @@ public class StringUtility
 {
 	public static void main(String[] args)
 	{
-//		joinTogether();		
-//		pickUniqueAndSort();
-//		splitAndJoinOnAPattern();
 		String path = "/Users/irina/Documents/coding/Hadoop/astro_data/";
 		String msg = "hello";
 		String name= "tmp.txt";
@@ -59,33 +56,6 @@ public class StringUtility
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	private static void splitAndJoinOnAPattern()
-	{
-		String regexSplit = Pattern.compile(":")
-	    .splitAsStream("foobar:foo:bar")
-	    .filter(s -> s.contains("bar"))
-	    .sorted()
-	    .collect(Collectors.joining(":"));
-		System.out.println(regexSplit);
-	}
-
-	private static void pickUniqueAndSort()
-	{
-		String uniquelySorted = "foobar:foo:bar"
-	    .chars()
-	    .distinct()
-	    .mapToObj(c -> String.valueOf((char)c))
-	    .sorted()
-	    .collect(Collectors.joining());
-		System.out.println(uniquelySorted);
-	}
-
-	private static void joinTogether()
-	{
-		String joined = String.join(":", "foobar", "foo", "bar");
-		System.out.println(joined);
 	}
 
 	public static List<String> extractPatternList(String regex, 
