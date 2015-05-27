@@ -8,6 +8,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import util.StringUtility;
+import util.ZodiacMapping.Zodiacs;
 
 /**
  * A mapper class for ZodiacSignCount
@@ -41,6 +42,14 @@ public class ZodiacSignMapper extends Mapper<LongWritable, Text, Text, IntWritab
 		String zodiacWord = StringUtility.substituteWordOnPattern(REGEX, 
 				word, GROUP_NAME);
 		word = (zodiacWord==null)?word:zodiacWord.toUpperCase();
+		
+		for (Zodiacs zodiac : Zodiacs.values())
+		{
+			if(word.equals(zodiac.getValue()))
+			{
+				word = zodiac.name();
+			}
+		}
 		
 		return word;
 	}
