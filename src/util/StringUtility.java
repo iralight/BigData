@@ -58,6 +58,19 @@ public class StringUtility
 		}
 	}
 
+	public static String substituteWordOnPattern(String regex, String initial, 
+			String groupName)
+	{
+		String result = null;
+		Matcher m = null;
+		m = Pattern.compile(regex).matcher(initial);
+		if(m.matches())
+		{
+			result = m.group(groupName);
+		}
+		return result;
+	}
+	
 	public static List<String> extractPatternList(String regex, 
 			List<String> initialList, String prefix)
 	{		
